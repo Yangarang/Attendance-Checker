@@ -2,7 +2,7 @@
  14:332:453 Mobile App Engineering and User Experience
 Mobile Applications and User Experience Final Project Report – Attendance
 
-Contributions (Team Anonymous):
+## Contributions (Team Anonymous):
 Jonathan Yang – Bluetooth Integration, SQLiteDatabase
 Jan Miranda – Framework, Bluetooth Integration with Threading
 Ka Wai Chu – UI Design, Excel External Saving
@@ -28,13 +28,13 @@ the main functions of the project each member focused on, our group consistently
 another on all aspects of the project. As a result, everyone was involved and contributed to the
 project.
 
-MainActivity / activity_main
+## MainActivity / activity_main
 
 Determines the ‘mode’ of the app: Professor or Instructor. Also takes in a name as the input so
 StudentActivity knows the name to tell ProfessorActivity. There are two buttons that start an
 intent for the Student and Professor Activities.
 
-Professor Activity / activity_professor
+## Professor Activity / activity_professor
 
 The layout contains an EditText to get the class name, a button to start/stop taking attendance,
 a ListView, and a button to view previous Classes.
@@ -57,7 +57,7 @@ listed in the ListView.
 Pressing “Show Previous Classes” Will clear the ListView and populate with every class saved
 in the DB. Clicking on any of the classes will launch an intent for Class Activity.
 
-StudentActivity / activity_student
+## StudentActivity / activity_student
 
 When launched it takes an extra from the intent that launched it to know the name of the
 Student. When the button “Search for Classes” is pressed, it scans for Bluetooth Devices.
@@ -70,7 +70,7 @@ will repeatedly send the Student’s name to the device until it receives an ack
 “yes” or “no”. If it receives and “yes”, it will Toast “Signed in” else it will Toast “Device already
 signed in”. If a socket was never able to be created, it will Toast “Sign in failed”.
 
-ClassActivity / activity_class
+## ClassActivity / activity_class
 
 When launched it takes an extra from the intent that launched it to know what Class to display. It
 then searches the DB for all students in that Class and populates the ListView with it.
@@ -85,7 +85,7 @@ Simple model class to hold the name and MAC address of a Student/Client
 --Class
 Simple model to hold the name(name+timestamp) of a Class
 
--- DatabaseHelper
+## DatabaseHelper
 DB Class containing SQLite commands/queries to create and search tables. There are three
 tables used: one for students, one for Classes, and one to Link Students to Classes. When
 creating a student, a class id is always provided so the student entry will be linked to the class
