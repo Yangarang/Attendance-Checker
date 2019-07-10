@@ -5,6 +5,7 @@ Contributions (Team Anonymous):
 Jonathan Yang – Bluetooth Integration, SQLiteDatabase
 Jan Miranda – Framework, Bluetooth Integration with Threading
 Ka Wai Chu – UI Design, Excel External Saving
+
 Jan first created the framework of the program, adding it to his GitHub and added all the
 necessary activities needed for application. Ka Wai focused on the UI on how everything should
 be implemented to be user friendly while Jon started with writing a SQL Database Helper class
@@ -17,8 +18,7 @@ which was difficult was how to handle multiple threads when multiple student pho
 to sign in at once, which Jan focused on. Ka Wai, along with Jan, finalized all the UI design of
 the application to ensure our application remained easy to use. Once we had running demo
 working, we all got together and tested the application to make sure multiple signins
-worked
-with multiple android phones. We all reviewed the code to determine any problems in
+worked with multiple android phones. We all reviewed the code to determine any problems in
 implementation. Meanwhile, Jon created the PowerPoint slides, Project Report, and
 presentation goals while everyone else contributed information.. While this is mainly how we
 handled each activity, we communicated with each other with any problems in design and
@@ -26,11 +26,15 @@ implementation throughout the creation of our attendance application. While this
 the main functions of the project each member focused on, our group consistently helped one
 another on all aspects of the project. As a result, everyone was involved and contributed to the
 project.
+
 MainActivity / activity_main
+
 Determines the ‘mode’ of the app: Professor or Instructor. Also takes in a name as the input so
 StudentActivity knows the name to tell ProfessorActivity. There are two buttons that start an
 intent for the Student and Professor Activities.
+
 Professor Activity / activity_professor
+
 The layout contains an EditText to get the class name, a button to start/stop taking attendance,
 a ListView, and a button to view previous Classes.
 Pressing “Start Attendance” will create a bluetooth server that starts in a separate thread and
@@ -51,7 +55,9 @@ Pressing “Stop Attendance” stops the Server Thread. Every Student that Succe
 listed in the ListView.
 Pressing “Show Previous Classes” Will clear the ListView and populate with every class saved
 in the DB. Clicking on any of the classes will launch an intent for Class Activity.
+
 StudentActivity / activity_student
+
 When launched it takes an extra from the intent that launched it to know the name of the
 Student. When the button “Search for Classes” is pressed, it scans for Bluetooth Devices.
 A BroadcastReceiver is used to know when it finds a device during the scan. When a device is
@@ -62,19 +68,23 @@ connect() call works, another thread is started to manage the new socket. The Ma
 will repeatedly send the Student’s name to the device until it receives an acknowledgement:
 “yes” or “no”. If it receives and “yes”, it will Toast “Signed in” else it will Toast “Device already
 signed in”. If a socket was never able to be created, it will Toast “Sign in failed”.
+
 ClassActivity / activity_class
+
 When launched it takes an extra from the intent that launched it to know what Class to display. It
 then searches the DB for all students in that Class and populates the ListView with it.
 Pressing “Export” will create an excel sheet using the jxl.jar. Every Class with the same name as
 the one currently displayed takes a Column in the spreadsheet and within each column are the
 students who signed into that respective class.
+
 Database
-Models
-Student
+-Models
+--Student
 Simple model class to hold the name and MAC address of a Student/Client
-Class
+--Class
 Simple model to hold the name(name+timestamp) of a Class
-DatabaseHelper
+
+-- DatabaseHelper
 DB Class containing SQLite commands/queries to create and search tables. There are three
 tables used: one for students, one for Classes, and one to Link Students to Classes. When
 creating a student, a class id is always provided so the student entry will be linked to the class
