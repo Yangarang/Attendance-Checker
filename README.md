@@ -1,6 +1,7 @@
 # Attendance Checker
  14:332:453 Mobile App Engineering and User Experience
 Mobile Applications and User Experience Final Project Report – Attendance
+
 Contributions (Team Anonymous):
 Jonathan Yang – Bluetooth Integration, SQLiteDatabase
 Jan Miranda – Framework, Bluetooth Integration with Threading
